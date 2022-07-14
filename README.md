@@ -29,4 +29,4 @@ The analysis of the election shows the following results:
   
   ## Challenge Overview
   
-  ##Challenge Summary
+  ## Challenge Summary
