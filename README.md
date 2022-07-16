@@ -43,39 +43,39 @@ The analysis of the election shows the following results:
 The purpose of this analysis was to determine the overall outcome of a local election, as well as analyze the data regarding voter turnout. Using the data set provided, I was able to analyze the outcome of the election, including votes per candidate and the winning candidate. This same data set also provided the information needed to analyze voter turnout from all three counties and determine the county with the largest voter turnout. The script written for this analysis is powerful enough to analyze multiple aspects of this eleciton, and could easily be used to analyze another set of election data as well. This same script could be used for larger or smaller elections, or to analyze the changes in voter turnout in the future or with past data sets as well.
 
 ## Code with explanations in comments
-# Add our dependencies.
+#Add our dependencies.
 import csv
 import os
 
-# Add a variable to load a file from a path.
+#Add a variable to load a file from a path.
 file_to_load = os.path.join("Resources", "election_results.csv")
-# Add a variable to save the file to a path.
+#Add a variable to save the file to a path.
 file_to_save = os.path.join("analysis", "election_analysis.txt")
 
-# Initialize a total vote counter.
+#Initialize a total vote counter.
 total_votes = 0
 
-# Candidate Options and candidate votes.
+#Candidate Options and candidate votes.
 candidate_options = []
 candidate_votes = {}
 
-# 1: Create a county list and county votes dictionary.
+#1: Create a county list and county votes dictionary.
 county_options = []
 county_votes = {}
 
 
-# Track the winning candidate, vote count and percentage
+#Track the winning candidate, vote count and percentage
 winning_candidate = ""
 winning_count = 0
 winning_percentage = 0
 
-# 2: Track the largest county and county voter turnout.
+#2: Track the largest county and county voter turnout.
 largest_turnout = ""
 turnout_votes = 0
 winning_countypercent = 0
 
 
-# Read the csv and convert it into a list of dictionaries
+#Read the csv and convert it into a list of dictionaries
 with open(file_to_load) as election_data:
     reader = csv.reader(election_data)
 
@@ -121,7 +121,7 @@ with open(file_to_load) as election_data:
         county_votes[county_name] += 1
 
 
-# Save the results to our text file.
+#Save the results to our text file.
 with open(file_to_save, "w") as txt_file:
 
     # Print the final vote count (to terminal)
@@ -135,7 +135,7 @@ with open(file_to_save, "w") as txt_file:
 
     txt_file.write(election_results)
 
-    # 6a: Write a for loop to get the county from the county dictionary.
+    #6a: Write a for loop to get the county from the county dictionary.
     for county_name in county_options:
         # 6b: Retrieve the county vote count.
         votes_county = county_votes.get(county_name)
@@ -156,7 +156,7 @@ with open(file_to_save, "w") as txt_file:
             largest_turnout = county_name
 
 
-    # 7: Print the county with the largest turnout to the terminal.
+    #7: Print the county with the largest turnout to the terminal.
     winning_county_summary = (
         f"-------------------------\n"
         f"County with highest turnout: {largest_turnout}\n"
